@@ -1,0 +1,40 @@
+{
+  "name": "mapcidade-change-monitor-bi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BI for a GIS change-detection module: ETL of consolidated alerts crossed with each city's edit log, daily alert snapshots, usage metrics and an editable register that replaces a control spreadsheet.",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "tsx watch --disable-warning=ExperimentalWarning src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node --disable-warning=ExperimentalWarning dist/index.js",
+    "seed": "tsx --disable-warning=ExperimentalWarning src/demo/seed.ts",
+    "demo:advance": "tsx --disable-warning=ExperimentalWarning src/demo/seed.ts",
+    "etl": "tsx --disable-warning=ExperimentalWarning src/etl/runner.ts",
+    "etl:schedule": "tsx --disable-warning=ExperimentalWarning src/etl/schedule.ts",
+    "test": "vitest run",
+    "lint": "eslint src tests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "echarts": "^5.6.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^24.0.0",
+    "@types/supertest": "^6.0.2",
+    "eslint": "^9.39.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.2.0"
+  }
+}
